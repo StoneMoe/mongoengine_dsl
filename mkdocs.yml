@@ -1,0 +1,58 @@
+site_name: MongoEngine DSL
+repo_url: https://github.com/StoneMoe/mongoengine_dsl
+repo_name: mongoengine_dsl
+strict: false
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Syntax: syntax.md
+  - Contributing Guide: contributing.md
+  - References: ref.md
+  - Contributor: authors.md
+  - ChangeLog: history.md
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/library
+  palette:
+    scheme: default
+  features:
+    - navigation.indexes
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tabs.sticky
+markdown_extensions:
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tabbed
+  - attr_list
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
+  - toc:
+      baselevel: 1
+      permalink: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
+  - meta
+plugins:
+  - include-markdown
+  - search:
+      lang: en
+  - mkdocstrings:
+      watch:
+        - mongoengine_dsl
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/StoneMoe/mongoengine_dsl
+      name: Github
