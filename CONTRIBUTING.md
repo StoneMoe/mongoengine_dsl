@@ -95,7 +95,6 @@ git checkout -b name-of-your-bugfix-or-feature
    tests, including testing other Python versions, with tox:
 
 ```bash
-antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 tox
 ```
 
