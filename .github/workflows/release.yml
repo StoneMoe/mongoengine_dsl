@@ -58,7 +58,7 @@ jobs:
 
       - name: build Lexer
         run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
+          antlr -o mongoengine_dsl/lexer -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 
       - name: Build wheels and source tarball
         run: >-
