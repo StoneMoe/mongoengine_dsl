@@ -96,7 +96,7 @@ git checkout -b name-of-your-bugfix-or-feature
 8. When you're done making changes, run tests:
 
 ```bash
-antlr -o mongoengine_dsl/lexer -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
+antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 tox
 ```
 
