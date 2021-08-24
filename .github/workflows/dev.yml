@@ -22,7 +22,7 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '16'
-      - uses: StoneMoe/setup-antlr4@v0.1
+      - uses: StoneMoe/setup-antlr4@v0.2
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-versions }}
