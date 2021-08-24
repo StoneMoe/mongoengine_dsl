@@ -22,16 +22,13 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: '16'
+      - uses: StoneMoe/setup-antlr4@v0.1
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-versions }}
 
       - name: Install dependencies
         run: |
-          cd /usr/local/lib
-          sudo curl -O https://www.antlr.org/download/antlr-4.9.2-complete.jar
-          export CLASSPATH=".:/usr/local/lib/antlr-4.9.2-complete.jar:$CLASSPATH"
-          alias antlr='java -jar /usr/local/lib/antlr-4.9.2-complete.jar'
           python -m pip install --upgrade pip
           pip install poetry tox tox-gh-actions
 
@@ -54,10 +51,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd /usr/local/lib
-          sudo curl -O https://www.antlr.org/download/antlr-4.9.2-complete.jar
-          export CLASSPATH=".:/usr/local/lib/antlr-4.9.2-complete.jar:$CLASSPATH"
-          alias antlr='java -jar /usr/local/lib/antlr-4.9.2-complete.jar'
           python -m pip install --upgrade pip
           pip install poetry tox tox-gh-actions
 
