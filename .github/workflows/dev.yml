@@ -34,13 +34,13 @@ jobs:
 
       - name: test with tox
         run:
+          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
           tox
 
       - name: list files
         run: ls -l .
 
   publish_dev_build:
-    # if test failed, we should not publish
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -56,6 +56,7 @@ jobs:
 
       - name: test with tox
         run:
+          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
           tox
 
       - name: list files

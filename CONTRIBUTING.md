@@ -66,6 +66,8 @@ brew install poetry  # use macOS with Homebrew
 4. Ensure antlr4 tool is installed:
 
 ```bash
+# it's recommended to match version between antlr4 tool and runtime
+# to avoid unexpected behavior 
 brew install antlr  # use macOS with Homebrew
 apt-get install antlr4  # use Linux with APT
 ```
@@ -91,10 +93,10 @@ git checkout -b name-of-your-bugfix-or-feature
 
    Now you can make your changes locally.
 
-8. When you're done making changes, check that your changes pass the
-   tests, including testing other Python versions, with tox:
+8. When you're done making changes, run tests:
 
 ```bash
+antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 tox
 ```
 
