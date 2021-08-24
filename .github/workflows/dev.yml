@@ -34,7 +34,7 @@ jobs:
 
       - name: build Lexer
         run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
+          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 
       - name: test with tox
         run: >-
@@ -63,7 +63,7 @@ jobs:
 
       - name: build Lexer
         run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
+          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
 
       - name: test with tox
         run: >-

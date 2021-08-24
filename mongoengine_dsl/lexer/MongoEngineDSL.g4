@@ -84,11 +84,11 @@ process : expression ;
 expression
     : expression AND expression # AndExpression
     | expression OR expression  # OrExpression
-    | filter                    # FilterExpression
+    | filterexpr                # FilterExpression
     | '(' expression ')'        # BracketExpression
     ;
 
-filter : field operator value ;
+filterexpr : field operator value ;
 
 field : TOKEN (DOT TOKEN)* ;
 operator : LE | GE | NE | LT | GT | EQ | IN | NIN ;
