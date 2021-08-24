@@ -57,7 +57,7 @@ jobs:
           publish_dir: ./site
 
       - name: Build wheels and source tarball
-        run: >-
+        run: |
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
           poetry build
 

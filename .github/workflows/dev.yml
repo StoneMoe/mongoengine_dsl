@@ -59,7 +59,7 @@ jobs:
           pip install poetry tox tox-gh-actions
 
       - name: test with tox
-        run:
+        run: |
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
           tox
 
