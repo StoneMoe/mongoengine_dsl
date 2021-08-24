@@ -56,9 +56,12 @@ jobs:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           publish_dir: ./site
 
-      - name: Build wheels and source tarball
-        run: |
+      - name: build Lexer
+        run: >-
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
+
+      - name: Build wheels and source tarball
+        run: >-
           poetry build
 
       - name: show temporary files

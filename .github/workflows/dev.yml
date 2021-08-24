@@ -32,9 +32,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry tox tox-gh-actions
 
-      - name: test with tox
-        run:
+      - name: build Lexer
+        run: >-
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
+
+      - name: test with tox
+        run: >-
           tox
 
       - name: list files
@@ -58,9 +61,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install poetry tox tox-gh-actions
 
-      - name: test with tox
-        run: |
+      - name: build Lexer
+        run: >-
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
+
+      - name: test with tox
+        run: >-
           tox
 
       - name: list files
@@ -75,7 +81,6 @@ jobs:
         run: |
           poetry version $(poetry version --short)-dev.$GITHUB_RUN_NUMBER
           poetry version --short
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4 || true
           poetry build
 
       - name: publish to Test PyPI
