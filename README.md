@@ -1,17 +1,15 @@
 <!--intro-start-->
+<div style="text-align: center;">
+
 ![Logo](docs/assets/logo.png)
 
-<div style="text-align: center;">
 <a href="https://pypi.python.org/pypi/mongoengine_dsl">
     <img src="https://img.shields.io/pypi/v/mongoengine_dsl.svg" alt="Release Status">
 </a>
 
-<a href="https://github.com/StoneMoe/mongoengine_dsl/actions">
-    <img src="https://github.com/StoneMoe/mongoengine_dsl/actions/workflows/release.yml/badge.svg?branch=release" alt="CI Status">
-</a>
-</div>
-
 DSL to MongoEngine Q
+
+</div>
 
 ## Features
 
