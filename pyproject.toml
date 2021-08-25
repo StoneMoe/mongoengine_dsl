@@ -22,6 +22,7 @@ packages = [
     { include = "mongoengine_dsl" },
     { include = "tests", format = "sdist" },
 ]
+include = ["mongoengine_dsl/lexer/*"]  # include generated code
 
 [tool.poetry.dependencies]
 python = ">=3.6.1,<4.0"
@@ -75,8 +76,6 @@ doc = [
     "mkdocs-autorefs",
     "livereload"
 ]
-
-
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
