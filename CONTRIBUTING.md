@@ -147,7 +147,7 @@ A reminder for the maintainers on how to deploy.
 4. Commit the changes:
 
     > ``` bash
-    > git add HISTORY.md pyproject.toml
+    > git add CHANGELOG.md pyproject.toml
     > git commit -m "Release: x.x.x"
     > ```
 
