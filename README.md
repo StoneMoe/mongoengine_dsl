@@ -1,3 +1,4 @@
+<!--intro-start-->
 ![Logo](docs/assets/logo.png)
 
 <div style="text-align: center;">
@@ -50,6 +51,6 @@ assert User.objects(
     })
 ).first().fullname == "Dick"
 ```
-
+<!--intro-end-->
 ## More
 Full Documentation: <https://stonemoe.github.io/mongoengine_dsl>

@@ -1,6 +1,6 @@
 # Syntax
 
-## operator
+## Operator
 
 | Name | Syntax | Example |
 | --- | --- | --- |
