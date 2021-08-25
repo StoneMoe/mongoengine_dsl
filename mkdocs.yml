@@ -9,7 +9,7 @@ nav:
   - Contributing Guide: contributing.md
   - References: ref.md
   - Contributor: authors.md
-  - ChangeLog: history.md
+  - ChangeLog: changelog.md
 theme:
   name: material
   language: en

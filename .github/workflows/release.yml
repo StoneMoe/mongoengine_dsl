@@ -64,10 +64,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          body_path: CHANGELOG.md
           files: dist/*.whl
           draft: false
           prerelease: false
+          body: |
+            <https://stonemoe.github.io/mongoengine_dsl/changelog>
 
       - name: Public to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
