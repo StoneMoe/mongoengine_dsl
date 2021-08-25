@@ -486,8 +486,9 @@
                 
                   <h1>Home</h1>
                 
-                <!-- BEGIN INCLUDE ../README.md   -->
-<p><img alt="Logo" src="docs/assets/logo.png" /></p>
+                <!-- BEGIN INCLUDE ../README.md &lt;!--intro-start--&gt; &lt;!--intro-end--&gt; -->
+
+<p><img alt="Logo" src="assets/logo.png" /></p>
 <div style="text-align: center;">
 <a href="https://pypi.python.org/pypi/mongoengine_dsl">
     <img src="https://img.shields.io/pypi/v/mongoengine_dsl.svg" alt="Release Status">
@@ -495,10 +496,6 @@
 
 <a href="https://github.com/StoneMoe/mongoengine_dsl/actions">
     <img src="https://github.com/StoneMoe/mongoengine_dsl/actions/workflows/release.yml/badge.svg?branch=release" alt="CI Status">
-</a>
-
-<a href="https://mongoengine-dsl.readthedocs.io/en/latest/?badge=latest">
-    <img src="https://readthedocs.org/projects/mongoengine-dsl/badge/?version=latest" alt="Documentation Status">
 </a>
 </div>
 
@@ -533,7 +530,8 @@
 <span class="normal">17</span>
 <span class="normal">18</span>
 <span class="normal">19</span>
-<span class="normal">20</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mongoengine</span> <span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span>
+<span class="normal">20</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">mongoengine</span> <span class="kn">import</span> <span class="n">Document</span><span class="p">,</span> <span class="n">StringField</span>
 <span class="kn">from</span> <span class="nn">mongoengine_dsl</span> <span class="kn">import</span> <span class="n">Query</span>
 
 
@@ -548,6 +546,7 @@
 <span class="k">assert</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span>
     <span class="n">Query</span><span class="p">(</span><span class="s2">&quot;fullname: Dick&quot;</span><span class="p">)</span>
 <span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">fullname</span> <span class="o">==</span> <span class="s2">&quot;Dick&quot;</span>
+
 <span class="k">assert</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="p">(</span>
     <span class="n">Query</span><span class="p">(</span><span class="s2">&quot;fullname: dick&quot;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="p">{</span>
         <span class="s2">&quot;fullname&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
@@ -555,7 +554,6 @@
 <span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">fullname</span> <span class="o">==</span> <span class="s2">&quot;Dick&quot;</span>
 </code></pre></div>
 </td></tr></table>
-<p>More: <a href="https://stonemoe.github.io/mongoengine_dsl">https://stonemoe.github.io/mongoengine_dsl</a></p>
 <!-- END INCLUDE -->
                 
               

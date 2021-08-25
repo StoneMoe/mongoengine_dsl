@@ -617,7 +617,7 @@
                 <!-- BEGIN INCLUDE ../CONTRIBUTING.md   -->
 <h1 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h1>
 <p>Contributions are welcome and greatly appreciated!
-This page will also guide you to contribute bugfix or new feature from scratch, check <a href="#start-coding">Start to code</a>.</p>
+This page will also guide you to contribute bugfix or new feature from scratch, check <a href="..#start-coding">Start to code</a>.</p>
 <h2 id="contribute-in-many-ways">Contribute in many ways<a class="headerlink" href="#contribute-in-many-ways" title="Permanent link">&para;</a></h2>
 <h3 id="report-bugs">Report Bugs<a class="headerlink" href="#report-bugs" title="Permanent link">&para;</a></h3>
 <p>Report bugs at https://github.com/StoneMoe/mongoengine_dsl/issues.</p>
@@ -675,7 +675,7 @@ brew install poetry  <span class="c1"># use macOS with Homebrew</span>
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="c1"># it&#39;s recommended to match version between antlr4 tool and runtime</span>
-<span class="c1"># to avoid unexpected behavior </span>
+<span class="c1"># to avoid unexpected behavior</span>
 brew install antlr  <span class="c1"># use macOS with Homebrew</span>
 apt-get install antlr4  <span class="c1"># use Linux with APT</span>
 </code></pre></div>
@@ -745,26 +745,25 @@ git push origin name-of-your-bugfix-or-feature
 <p>A reminder for the maintainers on how to deploy.</p>
 <ol>
 <li>
-<p>check out release branch, merge all changes from master/main to release</p>
+<p>checkout release branch, merge from master to release</p>
 </li>
 <li>
 <p>Update HISTORY.md</p>
-<p>Be noticed that github workflow will generate a changelog for you automatically.</p>
 </li>
 <li>
-<p>Commit the changes:</p>
+<p>Update version number</p>
 <blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add HISTORY.md
-git commit -m <span class="s2">&quot;Changelog for upcoming release 0.1.1.&quot;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry version <span class="o">[</span>major<span class="p">|</span>minor<span class="p">|</span>patch<span class="o">]</span>
 </code></pre></div>
 </td></tr></table>
 </blockquote>
 </li>
 <li>
-<p>Update version number</p>
+<p>Commit the changes:</p>
 <blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>poetry patch <span class="o">[</span>major<span class="p">|</span>minor<span class="p">|</span>patch<span class="o">]</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git add HISTORY.md pyproject.toml
+git commit -m <span class="s2">&quot;Release: x.x.x&quot;</span>
 </code></pre></div>
 </td></tr></table>
 </blockquote>
@@ -786,15 +785,15 @@ git commit -m <span class="s2">&quot;Changelog for upcoming release 0.1.1.&quot;
 </blockquote>
 </li>
 <li>
-<p>Push the tags, creating the new release on both GitHub and PyPI:</p>
+<p>Push the tags, this will create release on GitHub and PyPI:</p>
 <blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git tag %tag_name%
+<span class="normal">2</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>git tag vX.X.X
 git push --tags
 </code></pre></div>
 </td></tr></table>
 </blockquote>
-<p>tag_name has to be started with 'v'(lower case), to leverage github release workflow.</p>
+<p>tag_name has to be started with 'v'(lower case), to leverage GitHub release workflow.</p>
 </li>
 <li>
 <p>Check the PyPI listing page to make sure that the README, release
@@ -802,7 +801,6 @@ git push --tags
     we have already run twine check during tox test.</p>
 </li>
 </ol>
-<p>For full checklist: <a href="https://zillionare.github.io/cookiecutter-pypackage/pypi_release_checklist/">https://zillionare.github.io/cookiecutter-pypackage/pypi_release_checklist/</a></p>
 <!-- END INCLUDE -->
                 
               
