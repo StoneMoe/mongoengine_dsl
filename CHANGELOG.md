@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.2 (2021-08-25)
+## 0.1.3 (2021-08-25)
 
 * First release on PyPI.
 
