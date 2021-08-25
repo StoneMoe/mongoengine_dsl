@@ -4,7 +4,7 @@ from mongoengine import Q
 from mongoengine_dsl.errors import InvalidSyntaxError, TransformHookError
 from mongoengine_dsl.lexer.MongoEngineDSLListener import MongoEngineDSLListener
 from mongoengine_dsl.lexer.MongoEngineDSLParser import MongoEngineDSLParser
-from tests.utils import smart_bool
+from mongoengine_dsl.utils import smart_bool
 
 
 class Antlr4Listener(MongoEngineDSLListener):
