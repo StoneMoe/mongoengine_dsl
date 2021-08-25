@@ -67,7 +67,7 @@ brew install poetry  # use macOS with Homebrew
 
 ```bash
 # it's recommended to match version between antlr4 tool and runtime
-# to avoid unexpected behavior 
+# to avoid unexpected behavior
 brew install antlr  # use macOS with Homebrew
 apt-get install antlr4  # use Linux with APT
 ```
@@ -134,23 +134,21 @@ pytest tests.test_mongoengine_dsl
 
 A reminder for the maintainers on how to deploy.
 
-1. check out release branch, merge all changes from master/main to release
+1. checkout release branch, merge from master to release
 
 2. Update HISTORY.md
 
-    Be noticed that github workflow will generate a changelog for you automatically.
-
-3. Commit the changes:
+3. Update version number
 
     > ``` bash
-    > git add HISTORY.md
-    > git commit -m "Changelog for upcoming release 0.1.1."
+    > poetry version [major|minor|patch]
     > ```
 
-4. Update version number
+4. Commit the changes:
 
     > ``` bash
-    > poetry patch [major|minor|patch]
+    > git add HISTORY.md pyproject.toml
+    > git commit -m "Release: x.x.x"
     > ```
 
 5. Run the tests:
@@ -165,17 +163,15 @@ A reminder for the maintainers on how to deploy.
     > git push
     > ```
 
-7. Push the tags, creating the new release on both GitHub and PyPI:
+7. Push the tags, this will create release on GitHub and PyPI:
 
     > ``` bash
-    > git tag %tag_name%
+    > git tag vX.X.X
     > git push --tags
     > ```
 
-    tag_name has to be started with 'v'(lower case), to leverage github release workflow.
+    tag_name has to be started with 'v'(lower case), to leverage GitHub release workflow.
 
 8. Check the PyPI listing page to make sure that the README, release
     notes, and roadmap display properly. If tox test passed, this should be ok, since
     we have already run twine check during tox test.
-
-For full checklist: <https://zillionare.github.io/cookiecutter-pypackage/pypi_release_checklist/>
