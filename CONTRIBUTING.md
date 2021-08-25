@@ -136,7 +136,7 @@ A reminder for the maintainers on how to deploy.
 
 1. checkout release branch, merge from master to release
 
-2. Update HISTORY.md
+2. Update CHANGELOG.md
 
 3. Update version number
 
