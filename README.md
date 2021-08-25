@@ -1,5 +1,5 @@
 <!--intro-start-->
-<div style="text-align: center;">
+<center>
 
 ![Logo](docs/assets/logo.png)
 
@@ -9,7 +9,7 @@
 
 DSL to MongoEngine Q
 
-</div>
+</center>
 
 ## Features
 
