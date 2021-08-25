@@ -1,7 +1,7 @@
 [tool]
 [tool.poetry]
 name = "mongoengine_dsl"
-version = "0.1.1"
+version = "0.1.2"
 homepage = "https://github.com/StoneMoe/mongoengine_dsl"
 description = "DSL to MongoEngine Q."
 authors = ["Lake Chan <lakechan96@gmail.com>"]
