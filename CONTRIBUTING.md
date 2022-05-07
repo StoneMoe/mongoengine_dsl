@@ -1,12 +1,9 @@
 # Contributing
-
 Contributions are welcome and greatly appreciated!
-This page will also guide you to contribute bugfix or new feature from scratch, check [Start to code](#start-coding).
+This page will also guide you to contribute bugfix or new feature from scratch, check [Start to code](/contributing/#start-coding).
 
 ## Contribute in many ways
-
 ### Report Bugs
-
 Report bugs at https://github.com/StoneMoe/mongoengine_dsl/issues.
 
 If you are reporting a bug, please include:
@@ -16,23 +13,19 @@ If you are reporting a bug, please include:
 * Detailed steps to reproduce the bug.
 
 ### Fix Bugs
-
 Look through the GitHub issues for bugs. Anything tagged with "bug" and "help
 wanted" is open to whoever wants to implement it.
 
 ### Implement Features
-
 Look through the GitHub issues for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
-
 MongoEngine DSL could always use more documentation, whether as part of the
 official MongoEngine DSL docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
-
 The best way to send feedback is to file an issue at https://github.com/StoneMoe/mongoengine_dsl/issues.
 
 If you are proposing a feature:
@@ -43,77 +36,51 @@ If you are proposing a feature:
   are welcome :)
 
 ## Start coding
-
 Ready to contribute some code?
 Here's how to set up `mongoengine_dsl` for local development.
-
-1. Fork the `mongoengine_dsl` repo on GitHub.
-2. Clone your fork locally
-
 ```bash
+# 1.fork and clone
 git clone git@github.com:your_name_here/mongoengine_dsl.git
 cd mongoengine_dsl
-```
 
-3. Ensure [poetry](https://python-poetry.org/docs/) is installed.
-
-```bash
-pipx install poetry  # use pipx
-pip install poetry  # use pip
-brew install poetry  # use macOS with Homebrew
-```
-
-4. Ensure antlr4 tool is installed:
-
-```bash
+# 2.tool installation
+# Poetry
+pipx install poetry     # use pipx
+pip install poetry      # or use pip
+brew install poetry     # or use homebrew
+# Antlr4
+brew install antlr      # use homebrew
+apt-get install antlr4  # or use apt
 # it's recommended to match version between antlr4 tool and runtime
 # to avoid unexpected behavior
-brew install antlr  # use macOS with Homebrew
-apt-get install antlr4  # use Linux with APT
-```
 
-5. Install dependencies and start your virtualenv:
-
-```bash
+# 3.create and start your virtualenv
 poetry install -E test -E doc -E dev
 poetry shell
-```
 
-6. Install pre-commit hook:
-
-```bash
+# 4.git pre-commit hook
 pre-commit install
-```
 
-7. Create a branch for local development:
-
-```bash
+# 5.create your own branch
 git checkout -b name-of-your-bugfix-or-feature
-```
 
-   Now you can make your changes locally.
+# 6.coding
 
-8. When you're done making changes, run tests:
-
-```bash
-antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
+# 7.test your changes
 tox
-```
 
-9. Add your name and GitHub profile link to `AUTHORS.md` :D
-10. Commit your changes and push your branch to GitHub:
+# 8.add your name to `AUTHORS.md` :D
 
-```bash
-git add .
-git commit -m "Your detailed description of your changes."
-# Some files may be modified by hooks. If so, please add these files and commit again.
+# 9.commit and push
+git add -A
+git commit -m "fix: "
+# some files may be modified by pre-commit. If so, please add these files and commit again.
 git push origin name-of-your-bugfix-or-feature
-```
 
-11. Submit a pull request through the GitHub website.
+# 10.submit a pull request
+```
 
 ## Pull Request Guidelines
-
 Before you submit a pull request, check that it meets these guidelines:
 
 1. The pull request should include tests.
@@ -130,48 +97,17 @@ To run a subset of tests.
 pytest tests.test_mongoengine_dsl
 ```
 
-## Deploying & Release
-
-A reminder for the maintainers on how to deploy.
-
-1. checkout release branch, merge from master to release
-
-2. Update CHANGELOG.md
-
-3. Update version number
-
-    > ``` bash
-    > poetry version [major|minor|patch]
-    > ```
-
-4. Commit the changes:
-
-    > ``` bash
-    > git add CHANGELOG.md pyproject.toml
-    > git commit -m "Release: x.x.x"
-    > ```
-
-5. Run the tests:
-
-    > ``` bash
-    > tox
-    > ```
-
-6. Push the commit to release branch:
-
-    > ``` bash
-    > git push
-    > ```
-
-7. Push the tags, this will create release on GitHub and PyPI:
-
-    > ``` bash
-    > git tag vX.X.X
-    > git push --tags
-    > ```
-
-    tag_name has to be started with 'v'(lower case), to leverage GitHub release workflow.
-
-8. Check the PyPI listing page to make sure that the README, release
-    notes, and roadmap display properly. If tox test passed, this should be ok, since
-    we have already run twine check during tox test.
+## Release
+For maintainers.
+```bash
+git checkout master
+poetry version [major|minor|patch]  # bump
+vim CHANGELOG.md
+git add CHANGELOG.md pyproject.toml
+git commit -m "Release: x.x.x"
+tox  # final test
+git push
+git tag vX.X.X
+git push --tags
+# done
+```

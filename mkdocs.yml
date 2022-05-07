@@ -45,9 +45,9 @@ markdown_extensions:
       slugify: !!python/name:pymdownx.slugs.uslugify
   - meta
 plugins:
-  - include-markdown
   - search:
       lang: en
+  - include-markdown
   - mkdocstrings:
       watch:
         - mongoengine_dsl
