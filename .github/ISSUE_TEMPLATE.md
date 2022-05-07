@@ -9,7 +9,7 @@ Tell us what happened, what went wrong, and what you expected to happen.
 
 描述一下你正在尝试完成的事情。
 告诉我们发生了什么，错误信息是什么，以及你期望看到的结果。
-如果可以的话，请尽量使用英文，方便世界上更多的人因此错误报告受益。
+如果可以的话，请尽量使用英文，使世界上更多的人因你的反馈而受益。
 
 ### What I Did / 我做了什么
 

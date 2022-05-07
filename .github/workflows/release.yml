@@ -2,63 +2,32 @@ name: release
 
 on:
   push:
-    branch: release
     tags:
       - 'v*'
-  workflow_dispatch:
 
 jobs:
   release:
     name: Create Release
     runs-on: ubuntu-20.04
-
-    strategy:
-      matrix:
-        python-versions: [ 3.8 ]
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python-versions }}
+          python-version: 3.8
       - uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '16'
       - uses: StoneMoe/setup-antlr4@v1.0
-
-      - name: Install deps
+      - name: Install tools
         run: |
           python -m pip install --upgrade pip
-          pip install poetry
-
-      - name: Build Lexer
-        run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
-
-      - name: Build docs
-        run: |
-          poetry install -E doc
-          poetry run mkdocs build
-
-      - name: Publish docs
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./site
-
+          pip install poetry tox
       - name: Build dist
-        run: >-
+        run: |
+          tox -e prebuild
           poetry build
-
-      - name: Generate Changelog
-        uses: heinrichreimer/github-changelog-generator-action@v2.1.1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          addSections: '{"documentation":{"prefix":"**Documentation:**","labels":["documentation"]}}'
-          output: CHANGELOG.md
-
-      - name: Create GitHub release
+      - name: Publish GitHub release
         id: create_release
         uses: softprops/action-gh-release@v1
         env:
@@ -69,8 +38,7 @@ jobs:
           prerelease: false
           body: |
             <https://stonemoe.github.io/mongoengine_dsl/changelog>
-
-      - name: Publish to PyPI
+      - name: Publish PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           user: __token__

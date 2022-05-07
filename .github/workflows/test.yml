@@ -1,46 +1,41 @@
-name: dev
+name: test
 
 on:
   push:
-    branches: [ master,main ]
+    branches: [master, main]
   pull_request:
-    branches: [ master,main ]
-
+    branches: [master, main]
   workflow_dispatch:
 
 jobs:
   test:
     strategy:
       matrix:
-        python-versions: [3.6, 3.7, 3.8, 3.9]
+        python-versions: [3.7, 3.8, 3.9, 3.10]
         os: [ubuntu-18.04, macos-latest]
     runs-on: ${{ matrix.os }}
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
-          distribution: 'zulu'
-          java-version: '16'
+          distribution: "zulu"
+          java-version: "16"
       - uses: StoneMoe/setup-antlr4@v1.0
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-versions }}
-
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install poetry tox tox-gh-actions
-
-      - name: Build Lexer
-        run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
-
       - name: Test
         run: >-
           tox
-
-  publish_dev_build:
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+          files: coverage.xml
+  publish_test_build:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -50,38 +45,23 @@ jobs:
           python-version: 3.9
       - uses: actions/setup-java@v2
         with:
-          distribution: 'zulu'
-          java-version: '16'
+          distribution: "zulu"
+          java-version: "16"
       - uses: StoneMoe/setup-antlr4@v1.0
-
-      - name: Install deps
+      - name: Install tools
         run: |
           python -m pip install --upgrade pip
-          pip install poetry tox tox-gh-actions
-
-      - name: Build Lexer
-        run: >-
-          antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
-
-      - name: test
-        run: >-
-          tox
-
-      - uses: codecov/codecov-action@v1
-        with:
-          fail_ci_if_error: true
-          files: coverage.xml
-
+          pip install poetry tox
       - name: Build dist
         run: |
-          poetry version $(poetry version --short)-dev.$GITHUB_RUN_NUMBER
+          tox -e prebuild
+          poetry version $(poetry version --short)-test.$GITHUB_RUN_NUMBER
           poetry version --short
           poetry build
-
-      - name: Publish to Test PyPI
+      - name: Publish Test PyPI
         uses: pypa/gh-action-pypi-publish@master
         with:
           user: __token__
-          password: ${{ secrets.TEST_PYPI_API_TOKEN}}
+          password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
           skip_existing: true

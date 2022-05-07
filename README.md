@@ -1,4 +1,3 @@
-<!--intro-start-->
 <center>
 
 ![Logo](docs/assets/logo.png)
@@ -10,6 +9,8 @@
 DSL to MongoEngine Q
 
 </center>
+
+<!--intro-start-->
 
 ## Features
 
@@ -49,6 +50,8 @@ assert User.objects(
     })
 ).first().fullname == "Dick"
 ```
+
 <!--intro-end-->
+
 ## More
 Full Documentation: <https://stonemoe.github.io/mongoengine_dsl>
