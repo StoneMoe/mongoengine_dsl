@@ -7,7 +7,7 @@ on:
 
 jobs:
   release:
-    name: Create Release
+    name: Release
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +28,6 @@ jobs:
           tox -e prebuild
           poetry build
       - name: Publish GitHub release
-        id: create_release
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
