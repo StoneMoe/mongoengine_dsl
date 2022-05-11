@@ -455,6 +455,26 @@
     Release
   </a>
   
+    <nav class="md-nav" aria-label="Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release_1" class="md-nav__link">
+    release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -610,6 +630,26 @@
     Release
   </a>
   
+    <nav class="md-nav" aria-label="Release">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#release_1" class="md-nav__link">
+    release
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -759,7 +799,8 @@ git push origin name-of-your-bugfix-or-feature
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>pytest tests.test_mongoengine_dsl
 </code></pre></div></td></tr></table></div></p>
 <h2 id="release">Release<a class="headerlink" href="#release" title="Permanent link">&para;</a></h2>
-<p>For maintainers.
+<p>For maintainers.</p>
+<h3 id="release_1">release<a class="headerlink" href="#release_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
 <span class="normal"> 3</span>
@@ -776,10 +817,12 @@ poetry version <span class="o">[</span>major<span class="p">|</span>minor<span c
 vim CHANGELOG.md
 git add CHANGELOG.md pyproject.toml
 git commit -m <span class="s2">&quot;Release: </span><span class="k">$(</span>poetry version --short<span class="k">)</span><span class="s2">&quot;</span>
-git tag <span class="s2">&quot;v</span><span class="k">$(</span>poetry version --short<span class="k">)</span><span class="s2">&quot;</span>
+git tag -a -m <span class="s2">&quot;Release: </span><span class="k">$(</span>poetry version --short<span class="k">)</span><span class="s2">&quot;</span> <span class="s2">&quot;v</span><span class="k">$(</span>poetry version --short<span class="k">)</span><span class="s2">&quot;</span>
 git push --follow-tags
 <span class="c1"># done</span>
-</code></pre></div></td></tr></table></div></p>
+</code></pre></div></td></tr></table></div>
+<h3 id="documentation">documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h3>
+<p>run doc workflow from master branch manually</p>
 <!-- END INCLUDE -->
 
               
