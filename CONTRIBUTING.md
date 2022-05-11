@@ -99,6 +99,8 @@ pytest tests.test_mongoengine_dsl
 
 ## Release
 For maintainers.
+
+### release
 ```bash
 git checkout master
 git pull
@@ -111,3 +113,6 @@ git tag "v$(poetry version --short)"
 git push --follow-tags
 # done
 ```
+
+### documentation
+run doc workflow from master branch manually
