@@ -109,7 +109,7 @@ poetry version [major|minor|patch]  # bump
 vim CHANGELOG.md
 git add CHANGELOG.md pyproject.toml
 git commit -m "Release: $(poetry version --short)"
-git tag "v$(poetry version --short)"
+git tag -a -m "Release: $(poetry version --short)" "v$(poetry version --short)"
 git push --follow-tags
 # done
 ```
