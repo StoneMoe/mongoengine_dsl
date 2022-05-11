@@ -101,13 +101,13 @@ pytest tests.test_mongoengine_dsl
 For maintainers.
 ```bash
 git checkout master
+git pull
+tox  # final test
 poetry version [major|minor|patch]  # bump
 vim CHANGELOG.md
 git add CHANGELOG.md pyproject.toml
-git commit -m "Release: x.x.x"
-tox  # final test
-git push
-git tag vX.X.X
-git push --tags
+git commit -m "Release: $(poetry version --short)"
+git tag "v$(poetry version --short)"
+git push --follow-tags
 # done
 ```

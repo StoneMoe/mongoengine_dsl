@@ -9,11 +9,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-java@v2
-        with:
-          distribution: 'zulu'
-          java-version: '16'
-      - uses: StoneMoe/setup-antlr4@v1.0
       - uses: actions/setup-python@v3
         with:
           python-version: '3.8'
