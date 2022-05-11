@@ -11,7 +11,7 @@ jobs:
   test:
     strategy:
       matrix:
-        python-versions: ['3.7']
+        python-versions: ['3.7', '3.8', '3.9', '3.10']
         os: [ubuntu-18.04, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -56,7 +56,7 @@ jobs:
       - name: Build dist
         run: |
           antlr -Dlanguage=Python3 mongoengine_dsl/lexer/MongoEngineDSL.g4
-          poetry version $(poetry version --short)-test.$GITHUB_RUN_NUMBER
+          poetry version $(poetry version --short)-dev$GITHUB_RUN_NUMBER
           poetry version --short
           poetry build
       - name: Publish Test PyPI
